@@ -53,16 +53,13 @@ class PlayingField:
                         self.playing_field[y][x - 3 + i] == player:
                     return True
 
-        # up
-        for i in range(4):
-            if y - 3 + i < 0 or y + 1 + i > self.height:
-                continue
-            else:
-                if self.playing_field[y + i][x] == player and \
-                        self.playing_field[y - 1 + i][x] == player and \
-                        self.playing_field[y - 2 + i][x] == player and \
-                        self.playing_field[y - 3 + i][x] == player:
-                    return True
+        # down
+        if y + 3 < self.height:
+            if self.playing_field[y][x] == player and \
+                    self.playing_field[y + 1][x] == player and \
+                    self.playing_field[y + 2][x] == player and \
+                    self.playing_field[y + 3][x] == player:
+                return True
 
         # up and left
         for i in range(4):
